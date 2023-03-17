@@ -1,0 +1,7 @@
+echo "Before: $(sudo du -s -h /tmp)"
+
+sudo find /tmp -type f -atime +10 -delete
+sudo find /tmp -type d -empty -delete
+
+echo "After: $(sudo du -s -h /tmp)"
+

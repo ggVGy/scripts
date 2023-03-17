@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# devdeploy SSH_CONFIG_NAME [...EXE INSIDE BUILD]
+
+RUN="cd bin"
+
+if [ "$#" -ne 1 ]
+then
+    for str in $@; do
+        if [ "$str" != "$1" ]
+        then
+            RUN+="; ./$str"
+        fi
+    done
+else
+    RUN+="; ./frontend; ./backend"
+fi
+
+ssh -T $1 "$RUN"

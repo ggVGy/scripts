@@ -1,0 +1,11 @@
+#!/bin/sh
+
+OPENTODIR="${PWD}"
+TERMNUM=${1:-2}
+
+for i in `seq $TERMNUM`
+do
+    $TERMINAL --hold --working-directory $OPENTODIR &
+done
+
+

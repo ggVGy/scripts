@@ -1,0 +1,7 @@
+#!/bin/sh
+
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus
+DISPLAY=:0
+# . $HOME/.zprofile
+/usr/bin/rsync -aAXHv --quiet --delete --delete-excluded --filter="merge /home/trim/.backup_filter" /home/trim/ /mnt/hdd/backup/mysys
+/usr/bin/notify-send "📰 Backup complete."

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dir="$(rg "$1" | cut -f1 -d:)"
+echo $dir $lienum
+
+$EDITOR +/$1 $dir
